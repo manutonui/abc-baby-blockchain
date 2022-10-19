@@ -13,8 +13,14 @@ class KeyPair:
         publicKey, privateKey = rsa.newkeys(512)
 
         self.__privateKey = privateKey
-        self.publicKey = publicKey
+        self.__publicKey = publicKey
         return self
 
+    def getPrivateKey(self):
+        return self.__privateKey
+
+    def getPublicKey(self):
+        return self.__publicKey
+
     def printKeyPair (self):
-        print("- Public Key: " +str(self.publicKey)+ "\n- Private Key: "+str(self.__privateKey))
+        print("- Public Key: " +str(self.__publicKey)+ "\n- Private Key: "+str(self.__privateKey))
