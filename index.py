@@ -12,9 +12,7 @@ msg = "Whoever believes in Him shall not perish"
 
 signature = Signature.signData(privateKey, msg)
 
-# Signature.printSignature(signature)
+# Signature.printSignature(signature) # print signature value
 
-verifySignature = Signature.verifySignature(signature, msg, publicKey)
-
-# print(verifySignature)
+# Signature.verifySignature(signature, msg, publicKey) # verify a signature
 
