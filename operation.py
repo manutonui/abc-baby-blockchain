@@ -1,3 +1,5 @@
+from signature import Signature
+
 class Operation:
     def __init__(self) -> None:
         self.__sender = None
@@ -7,17 +9,19 @@ class Operation:
 
     @staticmethod
     def createOperation(self, sender, receiver, amount, signature):
-        self.__sender = sender
-        self.__receiver = receiver
+        self.__sender = sender # an account
+        self.__receiver = receiver # an account
         self.__amount = amount
         self.__signature = signature
         return self
 
     @staticmethod
-    def verifyOperation(operation):
+    def verifyOperation(self):
         # verify amount - that it does not exceed the sender's balance
         # verify signature - using sender's(account) pubKey
-        return False
+        if self.__sender.getBalance() < self.__amount:
+            return False
+        return Signature.verifySignature(self.__signature, self.__amount, self.__sender)
 
     def toString():
         return ""
